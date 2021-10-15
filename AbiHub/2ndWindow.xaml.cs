@@ -40,5 +40,12 @@ namespace AbiHub
         {
             this.Close();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            MainWindow wind1 = new MainWindow();
+            this.Close();
+            wind1.Show();
+        }
     }
 }

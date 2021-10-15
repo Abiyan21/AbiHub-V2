@@ -58,18 +58,26 @@
                              Style="{StaticResource  Menubuttontheme}"
                              Command="{Binding WeiteresCommand}"/>
 
+                <Button Content="Ausloggen"
+                        Height="50"
+                        Foreground="White"
+                        FontSize="18"
+                        Margin="15,199,15,15"
+                        
+                        Style="{StaticResource MenuMinbuttontheme}" Click="Button_Click_2"/>
+                
                 <Button Content="Minimize"
                         Height="50"
                         Foreground="White"
-                        FontSize="14"
-                        Margin="15,258,15,15"
+                        FontSize="18"
+                        Margin="15,-6,15,15"
                         
                         Style="{StaticResource MenuMinbuttontheme}" Click="Button_Click"/>
 
                 <Button Content="Exit"
                         Height="50"
                         Foreground="White"
-                        FontSize="14"
+                        FontSize="18"
                         Margin="15,-6,15,15"
                         Style="{StaticResource Menuexitbuttontheme}" Click="Button_Click_1">
                     
