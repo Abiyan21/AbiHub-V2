@@ -1,0 +1,33 @@
+﻿<Application x:Class="AbiHub.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:AbiHub"
+             xmlns:viewModel="clr-namespace:AbiHub.MVVM.ViewModel"
+             xmlns:view="clr-namespace:AbiHub.MVVM.View"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/Menubuttontheme.xaml"/>
+                <ResourceDictionary Source="Theme/Textbox.xaml"/>
+                <ResourceDictionary Source="Theme/Loginbuttontheme.xaml"/>
+                <ResourceDictionary Source="Theme/Menuexitbuttontheme.xaml"/>
+                <ResourceDictionary Source="Theme/MenuMinbuttontheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:UebermichViewModel}">
+                <view:Uebermich/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:WeiteresViewModel}">
+                <view:Weiteres/>
+            </DataTemplate>
+
+
+        </ResourceDictionary> 
+    </Application.Resources>
+</Application>

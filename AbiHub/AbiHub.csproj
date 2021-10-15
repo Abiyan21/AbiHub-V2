@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="benutzer.png" />
+    <None Remove="cancel %281%29.png" />
+    <None Remove="cancel.png" />
+    <None Remove="exit.png" />
+    <None Remove="min.jpg" />
+    <None Remove="min2.jpg" />
+    <None Remove="min3.jpg" />
+    <None Remove="minimize %281%29.png" />
+    <None Remove="minimize.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Fonts\" />
+    <Folder Include="MVVM\Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="4.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="benutzer.png" />
+    <Resource Include="cancel (1).png" />
+    <Resource Include="minimize (1).png" />
+  </ItemGroup>
+
+</Project>
