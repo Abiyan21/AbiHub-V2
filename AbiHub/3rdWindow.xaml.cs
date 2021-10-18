@@ -1,5 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,79 +11,48 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace AbiHub
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for _3rdWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class _3rdWindow : Window
     {
-        public MainWindow()
+        public _3rdWindow()
         {
             InitializeComponent();
         }
 
-        List<string> benutzer = new List<string>();
-        List<string> passwortL = new List<string>();
-
-
-
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
-        {
-            base.OnMouseLeftButtonDown(e);
-
-            this.DragMove();
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            _3rdWindow wind3 = new _3rdWindow();
-            this.Close();
-            wind3.Show();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             string path = @"C:\Users\abiya\Desktop\AbiHub-47feee68a569fbca29dbe8955c141fccaa8a9571\AbiHub\login.txt";
 
-            StreamReader sr = new StreamReader(path);
-            string line = "";
-            while ((line = sr.ReadLine()) != null)
+            if (File.Exists(path) == false)
             {
-                
-                string[] komponente = line.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                benutzer.Add(komponente[0]);
-                passwortL.Add(komponente[1]);
-                
+                File.Create(path);
             }
 
-            bool benutzernameverify = false;
-            bool passwordverify = false;
+            if (File.Exists(path) == true) 
+            {
 
-            if (benutzer.Contains(Benutzername.Text))
-            {
-                benutzernameverify = true;
-            }
-            if (passwortL.Contains(Password.Password))
-            {
-                passwordverify = true;
-            }
-            
+                FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write);
 
-            if (benutzernameverify == true && passwordverify == true)
-            {
-                _2ndWindow wind2 = new _2ndWindow();
+
+                StreamWriter sw = new StreamWriter(fs);
+                sw.WriteLine(Benutzername.Text + " " + Password.Password);
+                sw.Close();
+                fs.Close();
+
+                // File.WriteAllText(path, Benutzername.Text + " " + Password.Password);
+
+                MessageBox.Show("Benutzer erstellt.");
+
+                MainWindow wind1 = new MainWindow();
                 this.Close();
-                wind2.Show();
+                wind1.Show();
             }
-            else if (benutzernameverify == false || passwordverify == false)
-            {
-                MessageBox.Show("Fehler: Benutzername oder Passwort ist falsch.");
-            }
-            sr.Close();
         }
 
 
@@ -94,6 +62,7 @@ namespace AbiHub
             tb.Text = string.Empty;
             tb.GotFocus -= Benutzer_GotFocus;
         }
+
 
         public void Password_GotFocus(object sender, RoutedEventArgs e)
         {
