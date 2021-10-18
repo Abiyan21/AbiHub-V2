@@ -48,7 +48,7 @@ namespace AbiHub
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            string path = @"C:\Users\abiya\Desktop\AbiHub-47feee68a569fbca29dbe8955c141fccaa8a9571\AbiHub\login.txt";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "login.txt";
 
             StreamReader sr = new StreamReader(path);
             string line = "";
