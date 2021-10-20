@@ -29,7 +29,7 @@
                                 Width="60"
                                 Foreground="White"
                                 FontSize="14"
-                                Style="{StaticResource MenuMinbuttontheme}"
+                                Style="{StaticResource LoginMinButtonTheme}"
                                 Click="Button_Click_2">
                             <StackPanel>
                                 <Image Source="/minimize (1).png" Width="28"/>
