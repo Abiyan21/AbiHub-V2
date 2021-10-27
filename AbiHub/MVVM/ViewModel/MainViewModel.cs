@@ -9,6 +9,7 @@ namespace AbiHub.MVVM.ViewModel
 {
     class MainViewModel : ObservableObject
     {
+        #region Properties
         public RelayCommand HomeViewCommand { get; set; }
 
         public RelayCommand UebermichCommand { get; set; }
@@ -30,7 +31,12 @@ namespace AbiHub.MVVM.ViewModel
                      OnPropertyChanged();
                 }
         }
+        #endregion
 
+        #region Methoden
+        /// <summary>
+        /// Konstruktor / Wechselt den ViewModel im 2nd Fenster
+        /// </summary>
         public MainViewModel()
         {
 
@@ -56,5 +62,6 @@ namespace AbiHub.MVVM.ViewModel
                 CurrentView = WeiteresVM;
             });
         }
+        #endregion
     }
 }
