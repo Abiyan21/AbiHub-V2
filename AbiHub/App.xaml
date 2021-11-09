@@ -14,6 +14,7 @@
                 <ResourceDictionary Source="Theme/Menuexitbuttontheme.xaml"/>
                 <ResourceDictionary Source="Theme/MenuMinbuttontheme.xaml"/>
                 <ResourceDictionary Source="Theme/LoginMinButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/LoginExitButtonTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
