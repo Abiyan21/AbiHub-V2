@@ -36,6 +36,7 @@ namespace AbiHub
             InitializeComponent();
         }
 
+
         /// <summary>
         /// DragMove Funktion / erlaubt den Benutzer den Fenster zu bewegen
         /// </summary>

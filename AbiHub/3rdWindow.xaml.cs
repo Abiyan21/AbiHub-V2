@@ -44,32 +44,49 @@ namespace AbiHub
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "login.txt";
-
-            if (File.Exists(path) == false)
+            if (Benutzername.Text != "Benutzername" && Password.Password != "Password")
             {
-                File.Create(path);
+                string path = AppDomain.CurrentDomain.BaseDirectory + "login.txt";
+
+                if (File.Exists(path) == false)
+                {
+                    File.Create(path);
+                }
+
+                if (File.Exists(path) == true)
+                {
+
+                    FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write);
+
+
+                    StreamWriter sw = new StreamWriter(fs);
+                    sw.WriteLine(Benutzername.Text + " " + Password.Password);
+                    sw.Close();
+                    fs.Close();
+
+                    // File.WriteAllText(path, Benutzername.Text + " " + Password.Password);
+
+                    MessageBox.Show("Benutzer erstellt.");
+
+                    MainWindow wind1 = new MainWindow();
+                    this.Close();
+                    wind1.Show();
+                }
             }
 
-            if (File.Exists(path) == true) 
+            else if (Benutzername.Text == "Benutzername" && Password.Password == "Password")
             {
-
-                FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write);
-
-
-                StreamWriter sw = new StreamWriter(fs);
-                sw.WriteLine(Benutzername.Text + " " + Password.Password);
-                sw.Close();
-                fs.Close();
-
-                // File.WriteAllText(path, Benutzername.Text + " " + Password.Password);
-
-                MessageBox.Show("Benutzer erstellt.");
-
-                MainWindow wind1 = new MainWindow();
-                this.Close();
-                wind1.Show();
+                MessageBox.Show("Bitte geben Sie ein Benutzername und Passwort ein.");
             }
+            else if (Benutzername.Text == "Benutzername")
+            {
+                MessageBox.Show("Bitte geben Sie ein Benutzername ein.");
+            }
+            else if (Password.Password == "Password")
+            {
+                MessageBox.Show("Bitte geben Sie ein Passwort ein.");
+            }
+
         }
 
         /// <summary>
