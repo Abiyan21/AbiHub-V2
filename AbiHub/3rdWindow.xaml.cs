@@ -20,6 +20,10 @@ namespace AbiHub
     /// </summary>
     public partial class _3rdWindow : Window
     {
+
+        List<string> benutzer = new List<string>();
+        List<string> passwortL = new List<string>();
+
         #region Methoden
         public _3rdWindow()
         {
@@ -48,29 +52,47 @@ namespace AbiHub
             {
                 string path = AppDomain.CurrentDomain.BaseDirectory + "login.txt";
 
-                if (File.Exists(path) == false)
+                StreamReader sr = new StreamReader(path);
+                string line = "";
+                while ((line = sr.ReadLine()) != null)
                 {
-                    File.Create(path);
+
+                    string[] komponente = line.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                    benutzer.Add(komponente[0]);
+                    passwortL.Add(komponente[1]);
                 }
 
-                if (File.Exists(path) == true)
+                sr.Close();
+
+                if (benutzer.Contains(Benutzername.Text))
                 {
+                    MessageBox.Show("Benutzer existiert schon.");
+                }
+                else
+                {
+                    if (File.Exists(path) == false)
+                    {
+                        File.Create(path);
+                    }
 
-                    FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write);
+                    if (File.Exists(path) == true)
+                    {
+                        FileStream fs = new FileStream(path, FileMode.Append, FileAccess.Write);
 
 
-                    StreamWriter sw = new StreamWriter(fs);
-                    sw.WriteLine(Benutzername.Text + " " + Password.Password);
-                    sw.Close();
-                    fs.Close();
+                        StreamWriter sw = new StreamWriter(fs);
+                        sw.WriteLine(Benutzername.Text + " " + Password.Password);
+                        sw.Close();
+                        fs.Close();
 
-                    // File.WriteAllText(path, Benutzername.Text + " " + Password.Password);
+                        // File.WriteAllText(path, Benutzername.Text + " " + Password.Password);
 
-                    MessageBox.Show("Benutzer erstellt.");
+                        MessageBox.Show("Benutzer erstellt.");
 
-                    MainWindow wind1 = new MainWindow();
-                    this.Close();
-                    wind1.Show();
+                        MainWindow wind1 = new MainWindow();
+                        this.Close();
+                        wind1.Show();
+                    }
                 }
             }
 

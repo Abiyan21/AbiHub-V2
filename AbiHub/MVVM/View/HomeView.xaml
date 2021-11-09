@@ -43,7 +43,7 @@
                 <Grid>
                     <StackPanel>
                         <TextBlock Foreground="#dfd0c0" FontSize="28" Margin="20,10,10,0"  Text="Zweck der Arbeit"/>
-                        <TextBlock Foreground="#dfd0c0" FontSize="18" Margin="20,10,10,0"  Text="Der Zweck dieser Arbeit ist, dass ich&#x0a;mehr über WPF C# lernen kann.&#x0a;Ich habe dazu Videos geschaut und&#x0a;und habe diesen Projekt erstellt. "/>
+                        <TextBlock Foreground="#dfd0c0" FontSize="18" Margin="20,10,10,0"  Text="Der Zweck dieser Arbeit ist, dass ich&#x0a;mehr über WPF C# lernen kann.&#x0a;Ich habe dazu Videos geschaut und&#x0a;und habe dieses Projekt erstellt. "/>
 
                     </StackPanel>
                 </Grid>
